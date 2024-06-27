@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Billing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(255, 189, 222);
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border: none;
+            box-shadow: 0px 0px 20px rgb(64, 128, 128);
+            margin-bottom: 30px;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .btn-primary {
+            background-color: rgb(255, 0, 0);
+            border-color: rgb(255, 0, 128);
+            color:rgb(128, 255, 0);
+        }
+        .btn-primary:hover {
+            background-color: rgb(128, 0, 64);
+            border-color: rgb(255, 128, 192);
+            color:rgb(128, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4 text-center">Billing Details</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <!--<div class="card">-->
+                    <div class="card-body">
+                        <h4 class="card-title">Delivery Address:</h4>
+                        <p class="card-text" th:utext="${deliveryAddress}"></p>
+                    </div>
+               <!-- </div>-->
+            </div>
+            <div class="col-md-6">
+               <!-- <div class="card">-->
+                    <div class="card-body">
+                        <h4 class="card-title">Seller Address:</h4>
+                        <p class="card-text" th:utext="${sellerAddress}"></p>
+                    </div>
+               <!-- </div>-->
+            </div>
+        </div>
+       <!-- <div class="card mt-4">-->
+            <div class="card-body">
+                <h4 class="card-title">Total Amount:</h4>
+                <p class="card-text">Rs. <span th:text="${totalAmount}"></span></p>
+            </div>
+        <!--</div>-->
+        <form th:action="@{/placeOrder}" method="post">
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-danger">Place Order</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
